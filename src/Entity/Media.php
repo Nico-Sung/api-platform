@@ -57,7 +57,7 @@ class Media
     private ?File $file = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['media:read'])]
+    #[Groups(['media:read', 'product:read'])]
     public ?string $filePath = null;
 
     #[ORM\Column(nullable: true)]

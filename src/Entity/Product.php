@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Entity\Media;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
@@ -76,6 +77,11 @@ use Symfony\Component\Validator\Constraints as Assert;
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['product:read', 'product:write'])]
     private ?Category $category = null;
+
+    #[ORM\ManyToOne(targetEntity: Media::class)]
+    #[ORM\JoinColumn(nullable: true)] 
+    #[Groups(['product:read', 'product:write'])] 
+    private ?Media $media = null;
 
     public function __construct()
     {
@@ -161,6 +167,16 @@ use Symfony\Component\Validator\Constraints as Assert;
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+        return $this;
+    }
+    public function getMedia(): ?Media
+    {
+        return $this->media;
+    }
+
+    public function setMedia(?Media $media): self
+    {
+        $this->media = $media;
         return $this;
     }
 }
