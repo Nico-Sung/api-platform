@@ -9,11 +9,11 @@ L'ensemble est entièrement conteneurisé avec **Docker**.
 
 ## 🛠 Stack Technique
 
--   **Framework :** Symfony 7\
--   **API :** API Platform 3\
--   **Base de données :** MySQL 8.0\
--   **Serveur Web :** Nginx (Alpine)\
--   **Authentification :** LexikJWTAuthenticationBundle\
+-   **Framework :** Symfony 7
+-   **API :** API Platform 3
+-   **Base de données :** MySQL 8.0
+-   **Serveur Web :** Nginx (Alpine)
+-   **Authentification :** LexikJWTAuthenticationBundle
 -   **Environnement :** Docker & Docker Compose
 
 ## 📋 Prérequis
@@ -59,14 +59,14 @@ docker-compose exec php php bin/console doctrine:fixtures:load --no-interaction
 ### 🔐 Comptes de test
 
   **Admin** :
-  email : admin@test.com
-  mot de passe : password 
-  fonctionnalités : CRUD complet
+  email : admin@test.com ;
+  mot de passe : password ;
+  fonctionnalités : CRUD complet ;
 
   **User** :
-  email : user@test.com 
-  mot de passe : password 
-  fonctionnalités : Lecture + édition de son profil
+  email : user@test.com ;
+  mot de passe : password ; 
+  fonctionnalités : Lecture + édition de son profil ;
 
 
 ### 🔑 Authentification (JWT)
@@ -91,9 +91,9 @@ Body :
 
 ## ⭐ Fonctionnalités Clés
 
--   State Processor personnalisé\
--   Groupes de sérialisation\
--   Sécurité avancée\
+-   State Processor personnalisé
+-   Groupes de sérialisation
+-   Sécurité avancée
 -   Validation stricte
 
 ## 📂 Structure du Docker
