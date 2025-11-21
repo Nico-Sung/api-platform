@@ -110,7 +110,7 @@ Réponse :
 
 Inclure l’IRI ex. `/api/media/15` dans le champ `media`.
 
-``json
+```json
 {
   {
   "title": "Produit avec Photo",
