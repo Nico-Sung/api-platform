@@ -21,8 +21,27 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
         new Get(),
         new GetCollection(),
         new Post(
-            inputFormats: ['multipart' => ['multipart/form-data']],
-            validationContext: ['groups' => ['Default', 'media_create']]
+            controller: UploadMediaController::class, 
+            deserialize: false, 
+            
+            validationContext: ['groups' => ['Default', 'media_create']],
+            openapi: new Model\Operation(
+                requestBody: new Model\RequestBody(
+                    content: new \ArrayObject([
+                        'multipart/form-data' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'file' => [
+                                        'type' => 'string',
+                                        'format' => 'binary'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ])
+                )
+            )
         )
     ]
 )]
@@ -40,6 +59,9 @@ class Media
     #[ORM\Column(nullable: true)]
     #[Groups(['media:read'])]
     public ?string $filePath = null;
+
+    #[ORM\Column(nullable: true)]
+    public ?\DateTimeImmutable $updatedAt = null;
 
     public function getId(): ?int
     {
