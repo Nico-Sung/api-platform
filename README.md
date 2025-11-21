@@ -68,6 +68,61 @@ docker-compose exec php php bin/console doctrine:fixtures:load --no-interaction
   mot de passe : password ; 
   fonctionnalités : Lecture + édition de son profil ;
 
+### 📸 Gestion des Médias (Upload)
+
+#### 1. Uploader une image
+
+- **POST** `/api/media`
+- **Header :** `Content-Type: multipart/form-data`
+- **Body form-data :**  
+  - `file` → *(File)*
+
+Réponse :
+
+```json
+{
+  "@id": "/api/media/15",
+  "filePath": "image_upload.jpg"
+}
+```
+
+#### 2. Associer une image à un produit
+
+Inclure l’IRI ex. `/api/media/15` dans le champ `media`.### 📸 Gestion des Médias (Upload)
+
+#### 1. Uploader une image
+
+- **POST** `/api/media`
+- **Header :** `Content-Type: multipart/form-data`
+- **Body form-data :**  
+  - `file` → *(File)*
+
+Réponse :
+
+```json
+{
+  "@id": "/api/media/15",
+  "filePath": "image_upload.jpg"
+}
+```
+
+#### 2. Associer une image à un produit
+
+Inclure l’IRI ex. `/api/media/15` dans le champ `media`.
+
+``json
+{
+  {
+  "title": "Produit avec Photo",
+  "content": "Ce produit est magnifique",
+  "price": 50,
+  "quantity": 10,
+  "isPublished": true,
+  "category": "/api/categories/11",
+  "media": "/api/media/21"  
+  }
+}
+```
 
 ### 🔑 Authentification (JWT)
 
