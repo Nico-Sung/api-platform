@@ -1,0 +1,16 @@
+api_platform:
+    title: "Mon API"
+    version: "1.0.0"
+
+    formats:
+        jsonld: ["application/ld+json"]
+        json: ["application/json"]
+        html: ["text/html"]
+
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ["Content-Type", "Authorization", "Origin"]
+
+    patch_formats:
+        json: ["application/merge-patch+json"]
