@@ -58,14 +58,16 @@ docker-compose exec php php bin/console doctrine:fixtures:load --no-interaction
 
 ### 🔐 Comptes de test
 
-  ----------------------------------------------------------------------------
-  Rôle        Email            Mot de passe            Permissions
-  ----------- ---------------- ----------------------- -----------------------
-  **Admin**   admin@test.com   password                CRUD complet
+  **Admin** :
+  email : admin@test.com
+  mot de passe : password 
+  fonctionnalités : CRUD complet
 
-  **User**    user@test.com    password                Lecture + édition de
-                                                       son profil
-  ----------------------------------------------------------------------------
+  **User** :
+  email : user@test.com 
+  mot de passe : password 
+  fonctionnalités : Lecture + édition de son profil
+
 
 ### 🔑 Authentification (JWT)
 
