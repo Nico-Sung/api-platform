@@ -6,6 +6,7 @@ api_platform:
         jsonld: ["application/ld+json"]
         json: ["application/json"]
         html: ["text/html"]
+        multipart: ["multipart/form-data"]
 
     defaults:
         stateless: true

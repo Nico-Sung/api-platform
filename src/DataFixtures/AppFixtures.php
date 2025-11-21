@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Category;
+use App\Entity\Media; // 👈 N'oublie pas cet import !
 use App\Entity\Product;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -33,6 +34,14 @@ class AppFixtures extends Fixture
         $user->setPassword($this->passwordHasher->hashPassword($user, 'password'));
         $manager->persist($user);
 
+
+        $medias = [];
+        for ($i = 1; $i <= 10; $i++) {
+            $media = new Media();
+            $media->setFilePath("demo_image_$i.jpg"); 
+            $manager->persist($media);
+            $medias[] = $media;
+        }
         
         $categories = [];
         $categoryNames = ['High-Tech', 'Maison', 'Jardin', 'Sports', 'Livres'];
@@ -50,9 +59,7 @@ class AppFixtures extends Fixture
             $product->setContent("Description détaillée du produit exemple numéro $i");
             
             $product->setPrice(mt_rand(1000, 50000) / 100);
-            
             $product->setQuantity(mt_rand(0, 100));
-            
             $product->setIsPublished(mt_rand(0, 1) === 1);
             
             $date = new \DateTime();
