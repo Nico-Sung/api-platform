@@ -88,7 +88,7 @@ Réponse :
 
 #### 2. Associer une image à un produit
 
-Inclure l’IRI ex. `/api/media/15` dans le champ `media`.### 📸 Gestion des Médias (Upload)
+Inclure l’IRI ex. `/api/media/15` dans le champ `media`.
 
 #### 1. Uploader une image
 
